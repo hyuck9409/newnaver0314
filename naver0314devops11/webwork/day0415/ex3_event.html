@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function()
+        {
+            let txt1=document.getElementById("txt1");
+            //이벤트
+            txt1.onkeyup=function()
+            {
+                //입력한 값을 읽어서 msg 아이디에 넣는다
+                /*
+                innerHTML="html 코드 포함 문자열";
+                innerText="텍스트만 가능";
+                */
+               console.log(txt1.value,this.value);
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="txt1">
+    <br>
+    <h2 id="msg">result</h2>
+    <hr>
+    <input type="text" id="txt2">
+    <br>
+    <div id="msg2"result></div>
+    <script>
+        document.getElementById("txt2").onkeyup=function()
+        {
+            msg2.innerHTML=`<b style="font-size:25px;color:orange;">${this.value}</b>`;
+        }
+    </script>
+</body>
+</html>
