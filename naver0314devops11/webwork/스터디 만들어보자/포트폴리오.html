@@ -1,45 +1,81 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>자기소개</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body {
+        .main-top {
             background-color: black;
-            color: white; /* 텍스트 색상을 흰색으로 설정 */
-            display: flex; /* 부모 요소를 Flex Container로 설정 */
-            justify-content: center; /* 요소들을 수평 중앙으로 정렬 */
-            align-items: center; /* 요소들을 수직 중앙으로 정렬 */
-            height: 100vh; /* 화면 높이를 전체 뷰포트 높이로 설정 */
+            color: white;
+            /* 텍스트 색상을 흰색으로 설정 */
+            display: flex;
+            /* 부모 요소를 Flex Container로 설정 */
+            justify-content: center;
+            /* 요소들을 수평 중앙으로 정렬 */
+            align-items: center;
+            /* 요소들을 수직 중앙으로 정렬 */
+            height: 100vh;
+            /* 화면 높이를 전체 뷰포트 높이로 설정 */
         }
+
         .introduction {
             background-color: black;
             border: 1px solid black;
             border-radius: 5px;
             padding: 20px;
-            max-width: 50%; /* 텍스트 박스의 최대 너비 설정 */
-            margin-right: 20px; /* 오른쪽 여백 설정 */
-            flex-grow: 1; /* 텍스트 박스가 늘어나는 정도를 설정 */
+            max-width: 50%;
+            /* 텍스트 박스의 최대 너비 설정 */
+            margin-right: 20px;
+            /* 오른쪽 여백 설정 */
+            flex-grow: 1;
+            /* 텍스트 박스가 늘어나는 정도를 설정 */
         }
+
         .introduction p {
             font-size: 16px;
             line-height: 1.6;
         }
+
         .head-image {
-            width: 300px; /* 이미지의 너비를 설정 */
+            width: 300px;
+            /* 이미지의 너비를 설정 */
         }
     </style>
+    
 </head>
+
+
 <body>
-    <div class="introduction">
-        <div>
-            <h2>안녕하세요, <span id="chatText" class="index module"></span></h2>
+    <div class="main-top">
+
+
+        <div class="introduction">
+            <div>
+                <h2>안녕하세요, <span id="chatText" class="index module"></span></h2>
+            </div>
         </div>
+        <img src="https://via.placeholder.com/300" alt="헤드 이미지" class="head-image">
+        
     </div>
-    <img src="https://via.placeholder.com/300" alt="헤드 이미지" class="head-image">
+    
+    <div style="width: 100%; background-color: red;" >
+        <input type="text" id="inputText">
+        <button id="foot">ok</button>
+    </div>
+    <div>
+        asdfds
+    </div>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        
+        document.addEventListener("DOMContentLoaded", function () {
             var text = "정상혁입니다";
+            $("#inputText").keyup(function(){
+                text = $("#inputText").val();
+            })
+            
+
             var chatTextElement = document.getElementById("chatText");
             var index = 0;
             var delay = 100;
@@ -68,7 +104,6 @@
             typeWriter();
         });
     </script>
-
-    
 </body>
+
 </html>
