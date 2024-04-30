@@ -1,0 +1,1 @@
+SELECT * FROM bit701.myshop;

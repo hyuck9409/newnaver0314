@@ -11,9 +11,12 @@
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Dancing+Script:wght@400..700&family=East+Sea+Dokdo&family=Jua&family=Gaegu&family=Gamja+Flower&family=Pacifico&family=Single+Day&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <style>
-        
+        body *{
+            font-family: 'Jua';
+        }
     </style>
 </head>
 <%
@@ -55,10 +58,16 @@
 				onclick="location.href='shoplist.jsp'">목록</button>
 				
 				<button type="button" class="btn btn-outline-danger btn-sm"
-				style="width: 80px;">수정</button>
+				style="width: 80px;"
+				onclick="location.href='shopupdateform.jsp?shopidx=<%=dto.getShopidx()%>'">수정</button>
 				
 				<button type="button" class="btn btn-outline-danger btn-sm"
-				style="width: 80px;">삭제</button>
+				style="width: 80px;"
+				onclick="location.href='shopdelete.jsp?shopidx=<%=dto.getShopidx()%>'">삭제1</button>
+				
+				<button type="button" class="btn btn-outline-danger btn-sm"
+				style="width: 80px;" shopidx="<%=shopidx%>"
+				id="delshop">삭제2</button>
 				
 				<button type="button" class="btn btn-outline-danger btn-sm"
 				style="width: 80px;"
@@ -67,5 +76,15 @@
 		</tr>
 	</table>
 </div>
+<script type="text/javascript">
+//삭제2버튼 이벤트
+$("#delshop").click(function(){
+	let shopidx=$(this).attr("shopidx");
+	let a=confirm(`\${shopidx} 번 상품을 삭제할까요?`);//jsp에서는 $기능이 이미 있으므로 스크립트에서 변수를 넣을경우 \${변수명}
+	if(a){
+		location.href="shopdelete.jsp?shopidx="+shopidx;//페이지 이동
+	}
+});
+</script>
 </body>
 </html>
