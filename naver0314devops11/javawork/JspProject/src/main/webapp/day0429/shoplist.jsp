@@ -42,7 +42,7 @@ SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
 		<button type="button" class="btn btn-outline-primary"
 			style="margin-top: 10px; margin-left: 300px;"
 			onclick="location.href='./shopform.jsp'">상품 추가</button>
-		<table class="table table=bordered">
+		<table class="table table-bordered">
 			<tr class="table-danger">
 				<th width="200">상품명</th>
 				<th width="100">가격</th>
