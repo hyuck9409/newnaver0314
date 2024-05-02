@@ -111,4 +111,60 @@ public class StudentDao {
 		}
 		return dto;
 	}
+	//삭제
+		public void deleteStudent(int num)
+		{
+			String sql="""
+					delete from mystudent where num=? 
+					""";
+
+			Connection conn=db.getConnection();
+			PreparedStatement pstmt=null;
+
+			try {
+				pstmt=conn.prepareStatement(sql);
+				//바인딩
+				pstmt.setInt(1, num);
+				//실행
+				pstmt.execute();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				db.dbClose(pstmt, conn);
+			}
+
+		}
+	
+	//수정
+	public void updateStudent(StudentDto dto)
+	{
+		String sql="""
+				update mystudent set name=?,blood=?,license=?,java=?,spring=?,html=? where num=?
+				""";
+
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+
+		try {
+			pstmt=conn.prepareStatement(sql);
+			//바인딩
+			pstmt.setString(1, dto.getName());
+			pstmt.setString(2, dto.getBlood());
+			pstmt.setString(3, String.valueOf(dto.getLicense()));
+			pstmt.setInt(4, dto.getJava());
+			pstmt.setInt(5, dto.getSpring());
+			pstmt.setInt(6, dto.getHtml());
+			pstmt.setInt(7, dto.getNum());
+			//실행
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(pstmt, conn);
+		}
+
+	}
+	
 }

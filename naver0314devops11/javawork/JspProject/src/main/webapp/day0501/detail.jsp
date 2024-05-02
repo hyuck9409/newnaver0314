@@ -75,5 +75,17 @@
 	id="delstu" num="<%=dto.getNum() %>" sname="<%=dto.getName()%>"
 	style="width: 100px;">학생삭제</button>
 </div>
+<script type="text/javascript">
+$("#delstu").click(function(){
+	let num=$(this).attr("num");
+	let sname=$(this).attr("sname");
+	
+	let a= confirm(sname+" 학생의 정보를 삭제하려면 확인을 눌러주세요 ");
+	if(a){
+		location.href="delete.jsp?num=+num;"
+	}
+});
+
+</script>
 </body>
 </html>
