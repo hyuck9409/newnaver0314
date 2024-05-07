@@ -2,21 +2,33 @@ package data.dto;
 
 import java.sql.Timestamp;
 
-public class MemoDto {
+public class WhatDto {
 	
 	private int num;
+	private String ID;
+	private String PW;
+	private String mbti;
 	private String uploadPhoto;
 	private String title;
 	private String content;
 	private Timestamp writeday;
-	
-	
-	
-	public int getNum() {
-		return num;
+	public String getID() {
+		return ID;
 	}
-	public void setNum(int num) {
-		this.num = num;
+	public void setID(String iD) {
+		ID = iD;
+	}
+	public String getPW() {
+		return PW;
+	}
+	public void setPW(String pW) {
+		PW = pW;
+	}
+	public String getMbti() {
+		return mbti;
+	}
+	public void setMbti(String mbti) {
+		this.mbti = mbti;
 	}
 	public String getUploadPhoto() {
 		return uploadPhoto;
@@ -36,6 +48,12 @@ public class MemoDto {
 	public void setContent(String content) {
 		this.content = content;
 	}
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
 	public Timestamp getWriteday() {
 		return writeday;
 	}
@@ -43,4 +61,6 @@ public class MemoDto {
 		this.writeday = writeday;
 	}
 	
+	
+
 }

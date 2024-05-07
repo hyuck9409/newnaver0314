@@ -2,27 +2,45 @@ package data.dto;
 
 import java.sql.Timestamp;
 
-public class MemoDto {
+public class MbtiDto {
 	
 	private int num;
-	private String uploadPhoto;
+	private String id;
+	private String pw;
+	private String mymbti;
+	private String uploadphoto;
 	private String title;
 	private String content;
 	private Timestamp writeday;
-	
-	
-	
 	public int getNum() {
 		return num;
 	}
 	public void setNum(int num) {
 		this.num = num;
 	}
-	public String getUploadPhoto() {
-		return uploadPhoto;
+	public String getId() {
+		return id;
 	}
-	public void setUploadPhoto(String uploadPhoto) {
-		this.uploadPhoto = uploadPhoto;
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getPw() {
+		return pw;
+	}
+	public void setPw(String pw) {
+		this.pw = pw;
+	}
+	public String getMymbti() {
+		return mymbti;
+	}
+	public void setMymbti(String mymbti) {
+		this.mymbti = mymbti;
+	}
+	public String getUploadphoto() {
+		return uploadphoto;
+	}
+	public void setUploadphoto(String uploadphoto) {
+		this.uploadphoto = uploadphoto;
 	}
 	public String getTitle() {
 		return title;

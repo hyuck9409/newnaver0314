@@ -8,25 +8,28 @@ import java.util.List;
 import java.util.Vector;
 
 import data.dto.MemoDto;
+import data.dto.WhatDto;
 import db.common.MySQLConnect;
 
-
-public class MemoDao {
+public class WhatDao {
 	MySQLConnect db=new MySQLConnect();
 
 	//추가
-	public void insertMemo(MemoDto dto)
+	public void insertWhat(WhatDto dto)
 	{
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
-		String sql="insert into mymemo (uploadphoto,title,content,writeday) values (?,?,?,now())";
+		String sql="insert into mbti (ID,PW,mbti,uploadphoto,title,content,writeday) values (?,?,?,?,?,?,now())";
 
 		try {
 			pstmt=conn.prepareStatement(sql);
 			//바인딩
-			pstmt.setString(1, dto.getUploadPhoto());
-			pstmt.setString(2, dto.getTitle());
-			pstmt.setString(3, dto.getContent());
+			pstmt.setString(1, dto.getID());
+			pstmt.setString(2, dto.getPW());
+			pstmt.setString(3, dto.getMbti());
+			pstmt.setString(4, dto.getUploadPhoto());
+			pstmt.setString(5, dto.getTitle());
+			pstmt.setString(6, dto.getContent());
 			//실행
 			pstmt.execute();
 		} catch (SQLException e) {
@@ -37,20 +40,22 @@ public class MemoDao {
 		}
 	}
 	//출력
-	public List<MemoDto> getAllMemo()
+	public List<WhatDto> getAllWhat()
 	{
-		List<MemoDto> list=new Vector<MemoDto>();
+		List<WhatDto> list=new Vector<WhatDto>();
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		String sql="select * from mymemo order by num desc";
+		String sql="select * from mbti order by num desc";
 
 		try {
 			pstmt=conn.prepareStatement(sql);
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
-				MemoDto dto=new MemoDto();
-				dto.setNum(rs.getInt("num"));
+				WhatDto dto=new WhatDto();
+				
+				dto.setID(rs.getString("ID"));
+				dto.setPW(rs.getString("PW"));
 				dto.setUploadPhoto(rs.getString("uploadphoto"));
 				dto.setTitle(rs.getString("title"));
 				dto.setContent(rs.getString("content"));
@@ -68,23 +73,24 @@ public class MemoDao {
 		return list;
 	}
 
-	
-	public MemoDto getData(int num)
+	//상세보기
+	public WhatDto getData(int num)
 	{
-		MemoDto dto=new MemoDto();
+		WhatDto dto=new WhatDto();
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		String sql="select * from mymemo where num=?";
+		String sql="select * from mbti where =?";
 
 		try {
 			pstmt=conn.prepareStatement(sql);
-			
+			//바인딩
 			pstmt.setInt(1,num);
-			
+			//실행
 			rs=pstmt.executeQuery();
 			if(rs.next()) {
-				dto.setNum(rs.getInt("num"));
+				dto.setID(rs.getString("ID"));
+				dto.setPW(rs.getString("PW"));
 				dto.setUploadPhoto(rs.getString("uploadphoto"));
 				dto.setTitle(rs.getString("title"));
 				dto.setContent(rs.getString("content"));
@@ -100,3 +106,4 @@ public class MemoDao {
 		return dto;
 	}
 }
+
