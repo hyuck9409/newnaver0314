@@ -59,6 +59,20 @@ div.list2 img {
 	margin-right: 10px;
 	border-radius: 20px;
 }
+
+div.mytooltip{
+            position: absolute;
+            line-height: 1.5;
+            color: black;
+            width: 200px;
+            background-color: #f90;
+            border: 2px solid white;
+            padding: 15px;
+            font-size: 14px;
+            border-radius: 30px;
+            opacity: 0.8;
+            display: none;
+        }
 </style>
 <script type="text/javascript">
 $(function(){
@@ -191,7 +205,7 @@ function list3(){
 			$.each(data,function(idx,ele){
 				s+=
 					`
-					<tr>
+					<tr class="view" photo="${ele.sphoto}">
 				<td>${idx+1}</td>
 				<td>${ele.sname}</td>
 				<td>${ele.sprice}원</td>
@@ -216,6 +230,9 @@ function list3(){
 </script>
 </head>
 <body>
+<div class="mytooltip">
+    </div>
+
 	<div class="listicon">
 		<i class="bi bi-grid" id="list1"></i> <i class="bi bi-card-list"
 			id="list2"></i> <i class="bi bi-table" id="list3"></i>
