@@ -3,36 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Dancing+Script:wght@400..700&family=East+Sea+Dokdo&family=Jua&family=Gaegu&family=Gamja+Flower&family=Pacifico&family=Single+Day&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <style>
-        body *{
-            font-family: 'Jua';
-        }
-        
-        div.guestlist div.box{
-        	width: 400px;
-        	padding: 10px;
-        	border: 1px solid gray;
-        	border-radius: 10px;
-        	margin-bottom: 10px;
-        }
-        
-        div.guestlist div.box img{
-        	width: 50px;        	
-        	margin-right: 5px;
-        }
-        
-        div.guestlist div.box a{
-        	color:black;
-        	text-decoration: none;
-        	cursor: pointer;
-        }
-    </style>
-    <script type="text/javascript">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+<link
+	href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Dancing+Script:wght@400..700&family=East+Sea+Dokdo&family=Jua&family=Gaegu&family=Gamja+Flower&family=Pacifico&family=Single+Day&display=swap"
+	rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<style>
+body * {
+	font-family: 'Jua';
+}
+
+div.guestlist div.box {
+	width: 400px;
+	padding: 10px;
+	border: 1px solid gray;
+	border-radius: 10px;
+	margin-bottom: 10px;
+}
+
+div.guestlist div.box img {
+	width: 50px;
+	margin-right: 5px;
+}
+
+div.guestlist div.box a {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+</style>
+<script type="text/javascript">
     	$(function(){
     		list();//처음 로딩시 일단 목록 출력
     		
@@ -181,74 +187,73 @@
     </script>
 </head>
 <body>
-<!-- The Modal : 수정시 호출되는 모달다이얼로그-->
-<div class="modal" id="myModalUpdate">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
+	<!-- The Modal : 수정시 호출되는 모달다이얼로그-->
+	<div class="modal" id="myModalUpdate">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">방명록 닉네임/내용 수정</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">방명록 닉네임/내용 수정</h4>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+				</div>
 
-      <!-- Modal body -->
-      <div class="modal-body">
-        <input type="hidden" id="unum">
-        <input type="text" id="unickname" class="form-control"
-        style="width: 150px;">
-        <br>
-        <textarea id="ucontent" class="form-control"
-        style="width: 100%;height:100px;"></textarea>
-      </div>
+				<!-- Modal body -->
+				<div class="modal-body">
+					<input type="hidden" id="unum"> <input type="text"
+						id="unickname" class="form-control" style="width: 150px;">
+					<br>
+					<textarea id="ucontent" class="form-control"
+						style="width: 100%; height: 100px;"></textarea>
+				</div>
 
-      <!-- Modal footer -->
-      <div class="modal-footer">
-      	<button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btnupdate">수정하기</button>
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-      </div>
+				<!-- Modal footer -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger"
+						data-bs-dismiss="modal" id="btnupdate">수정하기</button>
+					<button type="button" class="btn btn-danger"
+						data-bs-dismiss="modal">Close</button>
+				</div>
 
-    </div>
-  </div>
-</div>
+			</div>
+		</div>
+	</div>
 
-<div style="margin: 10px;width:400px;">
-	<h5 class="alert alert-info">방명록</h5>
-	<div class="inputform">
-		<div class="input-group">
-			<select class="form-select" id="selavata">
-			<script>
+	<div style="margin: 10px; width: 400px;">
+		<h5 class="alert alert-info">방명록</h5>
+		<div class="inputform">
+			<div class="input-group">
+				<select class="form-select" id="selavata">
+					<script>
 			  for(let i=1;i<=10;i++){
 				  document.write(`<option value="../image/s${i}.JPG">
 				  아바타 #${i}</option>`);
 			  }	
 			</script>
-			</select>
-			<img src="../image/s1.JPG" width="40" class="avata">
-			<script>
+				</select> <img src="../image/s1.JPG" width="40" class="avata">
+				<script>
 				$("#selavata").change(function(){
 					$(".avata").attr("src",$(this).val());
 				});
 			</script>
-			
-			<input type="text" id="nickname" class="form-control"
-			placeholder="닉네임입력">
-			
-			<button type="button" class="btn btn-sm btn-success" id="btnsave">
-			DB저장</button>
+
+				<input type="text" id="nickname" class="form-control"
+					placeholder="닉네임입력">
+
+				<button type="button" class="btn btn-sm btn-success" id="btnsave">
+					DB저장</button>
+			</div>
+			<textarea id="content" style="width: 100%; height: 100px;"
+				placeholder="내용을 입력하세요"></textarea>
+			<hr>
+			<!-- 검색-->
+			<div class="input-group" style="margin-left: 100px; width: 300px;">
+				<b>닉네임 검색</b> <input type="text" id="search" class="form-control"
+					style="margin-left: 10px;">
+				<button type="button" class="btn btn-sm btn-info" id="btnsearch">검색</button>
+			</div>
+			<div class="guestlist">111</div>
 		</div>
-		<textarea id="content" style="width: 100%;height: 100px;" 
-		placeholder="내용을 입력하세요"></textarea>
-		<hr>
-		<!-- 검색-->
-		<div class="input-group" style="margin-left: 100px;width: 300px;">
-			<b>닉네임 검색</b>
-			<input type="text" id="search" class="form-control"
-			style="margin-left: 10px;">
-			<button type="button" class="btn btn-sm btn-info" id="btnsearch">검색</button>
-		</div>
-		<div class="guestlist">111</div>
 	</div>
-</div>
 </body>
 </html>
