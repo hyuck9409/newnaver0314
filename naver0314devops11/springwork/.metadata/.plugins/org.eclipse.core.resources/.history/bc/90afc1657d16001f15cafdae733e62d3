@@ -1,0 +1,18 @@
+package day0520.uploadcontroller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+public class UpaloadMultiController {
+
+	@GetMapping("/uploadform2")
+	public String upload2(
+			
+			
+			)
+	{
+		return "upload/uploadform2";
+	}
+}

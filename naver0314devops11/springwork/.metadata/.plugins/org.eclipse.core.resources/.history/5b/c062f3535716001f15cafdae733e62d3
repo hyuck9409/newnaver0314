@@ -1,0 +1,5 @@
+package day0520.dto;
+
+public class FoodDto {
+
+}

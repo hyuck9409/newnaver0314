@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="SpringMybatisMember"/>
+<aop-project name="SpringMvcEx1"/>
+<aop-project name="SpringMvcEx2"/>
+</aop-reference-model>

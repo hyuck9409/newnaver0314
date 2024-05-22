@@ -1,0 +1,10 @@
+
+5월 21, 2024 18:45:02.447 NEW SESSION
+5월 21, 2024 18:45:02.447 Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 21, 2024 18:57:35.422 [14008:11684:0521/185735.422:ERROR:connection_factory_impl.cc(483)] ConnectionHandler failed with net error: -2
+5월 21, 2024 20:32:16.454 [14008:1972:0521/203216.454:ERROR:cert_verify_proc_builtin.cc(1052)] CertVerifyProcBuiltin for interface.interworksmedia.co.kr failed:
+5월 21, 2024 20:32:16.457 ----- Certificate i=0 (CN=*.interworksmedia.co.kr) -----
+5월 21, 2024 20:32:16.457 ERROR: Time is after notAfter
+5월 21, 2024 20:32:16.458 
+5월 21, 2024 20:32:16.458 
+5월 21, 2024 21:18:57.949 [14008:11684:0521/211857.949:ERROR:connection_factory_impl.cc(483)] ConnectionHandler failed with net error: -2

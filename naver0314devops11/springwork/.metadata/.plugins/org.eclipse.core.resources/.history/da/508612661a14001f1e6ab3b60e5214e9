@@ -1,0 +1,8 @@
+package anno.study.ex5;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Ex5Main {
+	ApplicationContext context=new ClassPathXmlApplicationContext("appex5.xml");
+}
