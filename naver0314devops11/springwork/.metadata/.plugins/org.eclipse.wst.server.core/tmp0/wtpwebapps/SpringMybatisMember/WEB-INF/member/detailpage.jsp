@@ -85,9 +85,33 @@
 			style="width: 80px;"
 			onclick="location.href='./updateform?num=${dto.num}'">수정</button>
 			
-						<button type="button" class="btn btn-sm btn-outline-secondary"
+			<button type="button" class="btn btn-sm btn-outline-secondary"
 			style="width: 80px;"
-			onclick="">삭제</button>
+			onclick="del(${dto.num})">삭제</button>
+			
+			<script type="text/javascript">
+			function del(num)
+			{
+				//alert(num);
+				//비밀번호 입력받기
+				let passwd=prompt("비밀번호를 입력해주세요");
+				$.ajax({
+					type:"get",
+					dataType:"json",
+					url:"./delete",
+					data:{"num":num,"passwd":passwd},
+					success:function(data){
+						if(data.status=='success'){
+							alert("삭제되었습니다");
+							//목록으로 이동
+							location.href="./list";
+						}else{
+							alert("비밀번호가 맞지 않습니다");
+						}
+					}
+				});
+			}
+			</script>
 			
 		</td>
 	</tr>

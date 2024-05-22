@@ -1,0 +1,23 @@
+package member.controller;
+
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import member.dto.MemberDto;
+import member.service.MemberService;
+
+public class MemberUpdateController {
+	
+	private MemberService memberService;
+	
+	//수정폼-이름,핸드폰,이메일,주소,생년월일만 폼에 나타나도록
+	
+	//수정후 디테일 페이지로 이동
+	 @GetMapping("/updateform")
+	    public String showUpdateForm(@RequestParam("num") int num, Model model) {
+	        MemberDto member = memberService.getData(num);
+	        model.addAttribute("member", member);
+	        return "updateForm"; // updateForm.html 또는 updateForm.jsp
+	    }
+}
