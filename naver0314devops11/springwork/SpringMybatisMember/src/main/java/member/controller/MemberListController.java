@@ -24,6 +24,7 @@ public class MemberListController {
 	private MemberService memberService;
 	
 	@GetMapping("/list")
+	//아래는 list를 처리하는 과정들
 	public String list(Model model)
 	{
 		int totalCount;//총 갯수
@@ -34,7 +35,7 @@ public class MemberListController {
 		model.addAttribute("totalCount", totalCount);
 		model.addAttribute("list", list);
 		
-		return "member/memberlist";
+		return "member/memberlist";//반환되는 위치
 	}
 	
 }
