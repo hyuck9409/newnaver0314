@@ -59,6 +59,7 @@
           width:700px;
           height: auto;
           }
+          
    </style>
 </head>
 <body>

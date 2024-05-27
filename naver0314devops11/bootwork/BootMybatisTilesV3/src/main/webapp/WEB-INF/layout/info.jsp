@@ -19,6 +19,9 @@
    </style>
 </head>
 <body>
-info
+<div>
+레이드가기싫어요<br>
+귀찮아요
+</div>
 </body>
 </html>

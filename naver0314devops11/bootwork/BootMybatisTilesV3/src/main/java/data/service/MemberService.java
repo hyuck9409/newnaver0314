@@ -39,6 +39,11 @@ public class MemberService {
 		return memInter.getData(num);
 	}
 	
+	public MemberDto getDataById(String myid)
+	{
+		return memInter.getDataById(myid);
+	}
+	
 	public void updatePhoto(int num,String photo)
 	{
 		Map<String, Object> map=new HashMap<>();
@@ -55,5 +60,10 @@ public class MemberService {
 		
 		return memInter.deleteMember(map);
 				
+	}
+	
+	public boolean isLoginCheck(String myid,String pass) 
+	{
+		return memInter.isLoginCheck(myid, pass)==1?true:false;
 	}
 }

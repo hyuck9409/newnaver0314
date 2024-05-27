@@ -32,10 +32,18 @@ public interface MemberMapperInter {
 	@Select("select * from memberdb where num=#{num}")
 	public MemberDto getData(int num);
 	
+	@Select("select * from memberdb where myid=#{myid}")
+	public MemberDto getDataById(String myid);
+	
 	@Update("update memberdb set photo=#{photo} where num=#{num}")
 	public void updatePhoto(Map<String, Object> map);
 		
 	@Delete("delete from memberdb where num=#{num} and passwd=#{passwd}")
 	
 	public int deleteMember(Map<String, Object> map);
+	
+	@Select("""
+			select count(*) from memberdb where myid=#{myid} and passwd=#{pass}
+			""")
+	public int isLoginCheck(String myid,String pass);
 }
