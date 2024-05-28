@@ -9,10 +9,13 @@ import org.springframework.stereotype.Service;
 
 import data.dto.MemberDto;
 import data.mapper.MemberMapperInter;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 public class MemberService {
-	@Autowired
+	@NonNull
 	private MemberMapperInter memInter;
 	
 	public int getTotalCount()

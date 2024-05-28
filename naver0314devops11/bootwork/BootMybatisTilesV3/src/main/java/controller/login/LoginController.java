@@ -24,7 +24,7 @@ public class LoginController {
 			@RequestParam(defaultValue = "no") String saveid,/*널값이 넘어올경우 디폴트값이 적용된다*/
 			@RequestParam String myid,
 			@RequestParam String pass,
-			HttpSession session)
+			HttpSession session)//http세션을 불러온다
 	{
 		System.out.println("saveid="+saveid);
 		Map<String, String> map=new HashMap<>();

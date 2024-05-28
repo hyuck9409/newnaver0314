@@ -50,11 +50,11 @@ public class BoardListController {
 		//각 페이지에 출력할 시작번호
 		//총 갯수가 20개일경우 1페이지는 20,2페이지는 15...
 		no=totalCount-(currentPage-1)*perPage;	
-		
+
 		//목록 가져오기
 		List<ReBoardDto> list=boardService.getPagingList(start, perPage);
-		
-		//model 에 필요한 데이터 저장
+
+		//model 에 필요한 데이타 저장
 		model.addAttribute("totalCount", totalCount);
 		model.addAttribute("list", list);		
 		//페이지 출력시 필요한 변수들을 모두 request 에 저장한다
@@ -63,7 +63,7 @@ public class BoardListController {
 		model.addAttribute("endPage",endPage );	
 		model.addAttribute("totalPage", totalPage);	
 		model.addAttribute("no",no);	
-		
+
 		return "board/boardlist";
 	}
 }

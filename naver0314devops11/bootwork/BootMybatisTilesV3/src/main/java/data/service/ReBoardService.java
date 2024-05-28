@@ -14,7 +14,6 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class ReBoardService {
-	
 	@NonNull
 	private ReBoardMapperInter boardMapper;
 	
@@ -29,7 +28,7 @@ public class ReBoardService {
 		map.put("regroup", regroup);
 		map.put("restep", restep);
 		
-		boardMapper.updateRestep(map);
+		boardMapper.updateRestep(map);		
 	}
 	
 	public void insertBoard(ReBoardDto dto)
@@ -38,18 +37,18 @@ public class ReBoardService {
 		int regroup=dto.getRegroup();
 		int restep=dto.getRestep();
 		int relevel=dto.getRelevel();
-		
+				
 		if(num==0)//새글
 		{
 			regroup=this.getMaxNum()+1;
 			restep=0;
 			relevel=0;
 		}else {//답글
-			//기존의 같은 그룹글 중 전달받은 restep 보다 큰 restep 은 모두 +1 하기
+			//기존의 같은 그룹글중 전달받은 restep 보다 큰 restep 은 모두 +1 하기
 			this.updateRestep(regroup, restep);
 			//전달받은 restep,relevel 에 +1
 			restep+=1;
-			relevel+=1;
+			relevel+=1;	
 		}
 		//dto 에 변경된 값 넣기
 		dto.setRegroup(regroup);
@@ -71,14 +70,25 @@ public class ReBoardService {
 		map.put("start", start);
 		map.put("perpage", perpage);
 		
-		return boardMapper.getPagingList(map);
+		return boardMapper.getPagingList(map);		
 	}
+	
 	public void updateReadcount(int num)
 	{
 		boardMapper.updateReadcount(num);
 	}
+	
 	public ReBoardDto getData(int num)
 	{
 		return boardMapper.getData(num);
+	}
+	public void updateBoard(ReBoardDto dto)
+	{
+		boardMapper.updateBoard(dto);
+	}
+	
+	public void deleteBoard(int num)
+	{
+		boardMapper.deleteBoard(num);
 	}
 }
