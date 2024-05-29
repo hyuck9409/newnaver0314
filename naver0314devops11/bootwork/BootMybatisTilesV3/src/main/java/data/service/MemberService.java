@@ -9,13 +9,10 @@ import org.springframework.stereotype.Service;
 
 import data.dto.MemberDto;
 import data.mapper.MemberMapperInter;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
 @Service
-@RequiredArgsConstructor
 public class MemberService {
-	@NonNull
+	@Autowired
 	private MemberMapperInter memInter;
 	
 	public int getTotalCount()
@@ -55,17 +52,26 @@ public class MemberService {
 		memInter.updatePhoto(map);		
 	}
 	
-	public int deleteMember(int num, String passwd)
+	public void updateMember(MemberDto dto)
 	{
-		Map<String, Object> map=new HashMap<>();	
+		memInter.updateMember(dto);
+	}
+		
+	public boolean isEqualPassCheck(int num,String passwd)
+	{
+		Map<String, Object> map=new HashMap<String, Object>();
 		map.put("num", num);
 		map.put("passwd", passwd);
-		
-		return memInter.deleteMember(map);
-				
+		int n=memInter.isEqualPassCheck(map);
+		return n==1?true:false;
 	}
 	
-	public boolean isLoginCheck(String myid,String pass) 
+	public void deleteMember(int num)
+	{
+		memInter.deleteMember(num);
+	}
+	
+	public boolean isLoginCheck(String myid,String pass)
 	{
 		return memInter.isLoginCheck(myid, pass)==1?true:false;
 	}

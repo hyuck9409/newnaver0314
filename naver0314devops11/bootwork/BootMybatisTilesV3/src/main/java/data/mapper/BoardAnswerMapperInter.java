@@ -21,7 +21,7 @@ public interface BoardAnswerMapperInter {
 	@Select("select * from boardanswer where num=#{num} order by aidx desc")	
 	public List<BoardAnswerDto> getAnswerData(int num);
 	
-	@Delete("delete * from boardanswer where aidx=#{aidx}")
-	public void deletAnswer(int aidx);
+	@Delete("delete from boardanswer where aidx=#{aidx}")
+	public void deleteAnswer(int aidx);
 	}
 

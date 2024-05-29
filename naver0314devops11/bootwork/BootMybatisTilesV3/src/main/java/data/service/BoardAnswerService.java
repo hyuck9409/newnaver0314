@@ -5,6 +5,8 @@ import java.util.List;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import data.dto.BoardAnswerDto;
 import data.mapper.BoardAnswerMapperInter;
@@ -25,8 +27,10 @@ public class BoardAnswerService {
 		return anInter.getAnswerData(num);
 	}
 	
-	public void deletAnswer(int aidx)
+	public void deleteAnswer(int aidx)
 	{
-		anInter.deletAnswer(aidx);
+		anInter.deleteAnswer(aidx);
 	}
+	
+	
 }

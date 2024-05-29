@@ -30,7 +30,7 @@
 		onclick="location.href='./form'">글쓰기</button>
 	</c:if>	
 </div>
-<table  class="table table-striped" style="width: 600px;">
+<table  class="table table-striped" style="width: 600px;" >
 	<tr class="table-info">
 		<th width="50">번호</th>
 		<th width="270">제목</th>
@@ -67,9 +67,9 @@
 				  <!-- 제목 -->
 				  ${dto.subject}
 				  <!-- 사진이 있을경우 아이콘 표시 -->
-				  <c:if test="${dto.uploadphoto!='no' }">
-				  <i class="bi bi-image"
-				  style="color: gray;"></i>
+				  <c:if test="${dto.uploadphoto!='no'}">
+				  		<i class="bi bi-image"
+				  		style="color: gray;"></i>
 				  </c:if>
 				</a>
 			</td>
