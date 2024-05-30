@@ -60,7 +60,7 @@
 		  });
 	  });
 	   
-	//댓글 삭제 이벤트
+	   //댓글 삭제 이벤트
 	   $(document).on("click",".adel",function(){
 		  let aidx=$(this).attr("aidx");
 		  let a=confirm("해당 댓글을 삭제할까요?");
@@ -77,11 +77,11 @@
 			  })
 		  }
 	   });
-  });
+   });
    
    function answer_list(){
 	   let num=${dto.num};
-	   //로그인중인지 로그인중일 경우 로그인 아이디 얻기
+	   //로그인중인지 로그인중일경우 로그인 아이디 얻기
 	   let loginok='${sessionScope.loginok}';
 	   let loginid='${sessionScope.loginid}';
 	   console.log(loginok+","+loginid);
@@ -102,17 +102,16 @@
 					  \${ele.writer}(\${ele.myid})
 					  <span class="aday">\${ele.writeday}</span>
 					  `;
-					  //로그인중이면서 댓글 아이디와 로그인 아이디가 같은경우 삭제 아이콘 추가
-					  if(loginok=='yes' && loginid==ele.myid){
-						  s+=
-							  `
-							  <i class="bi bi-trash adel" aidx="\${ele.aidx}"
-							  style="cursor:pointer;"></i>
-							  `
-							  
-					  }
+					//로그인중이면서 댓글 아이디와 로그인 아이디가 같을경우 삭제 아이콘 추가
+				   if(loginok=='yes' && loginid==ele.myid){
+					   s+=
+						   `
+						   <i class="bi bi-trash adel" aidx="\${ele.aidx}"
+						   style="cursor:pointer;"></i>
+						   `
+				   }	  
 					  
-					  s+=`
+				   s+=`
 					  <br>
 					  <pre class="adata">\${ele.content}</pre>
 					  <br>
@@ -124,13 +123,15 @@
    }
    </script>
 </head>
+<c:set var="stpath" value="https://kr.object.ncloudstorage.com/bitcamp-bucket-56/photocommon"/>
+
 <body>
 <table class="table" style="width: 500px;">
 	<tr>
 		<td>
 			<h2><b>${dto.subject}</b></h2>
 			<!-- 프로필 사진 -->
-			<img src="../save/${profile_photo}"
+			<img src="${stpath}/${profile_photo}"
 			  onerror="this.src='../image/noimage2.png'"
 			  style="width: 45px;height: 45px;margin-right:5px;"
 			  class="rounded-circle" align="left">
@@ -151,7 +152,7 @@
 	<tr>
 		<td>
 			<c:if test="${dto.uploadphoto!='no'}">
-				<img src="../save/${dto.uploadphoto}"
+				<img src="${stpath}/${dto.uploadphoto}"
 				onerror="this.src='../image/noimage2.png'"
 				style="max-width: 300px;">
 				<br><br>
